@@ -5,27 +5,26 @@ namespace Grocery.Core.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private readonly List<Product> products;
+        private List<Product> Products { get; set; };
         public ProductRepository()
         {
-            products = [
-                /* 
-                 * initieer de lijst met 4 nieuwe producten: 
-                 * Melk[voorraad 300], 
-                 * Kaas[voorraad 100], 
-                 * Brood[voorraad 400] en 
-                 * Cornflakes[voorraad 0]
-                */
-				];
+            Products = new List<Product>()
+            {
+                new Product(0, "Melk", 300),
+                new Product(1, "Kaas", 100),
+                new Product(2, "Brood", 400),
+                new Product(3, "Cornflakes", 0)
+            };
         }
+
         public List<Product> GetAll()
         {
-            return []; //wijzig dit in de gemaakte lijst uit de constructo
+            return Products;
         }
 
         public Product? Get(int id)
         {
-            return products.FirstOrDefault(p => p.Id == id);
+            return Products.FirstOrDefault(p => p.Id == id);
         }
 
         public Product Add(Product item)
