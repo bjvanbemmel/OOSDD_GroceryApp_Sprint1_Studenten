@@ -5,7 +5,7 @@ namespace Grocery.Core.Data.Repositories
 {
     public class ProductRepository : IProductRepository
     {
-        private List<Product> Products { get; set; };
+        private List<Product> Products { get; set; }
         public ProductRepository()
         {
             Products = new List<Product>()
